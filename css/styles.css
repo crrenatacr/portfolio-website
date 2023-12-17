@@ -1,0 +1,409 @@
+/* Variables - defining the scope of the variable*/
+
+
+a {
+  color: #357b70;
+}
+
+/* Using hexadecimal notation */
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    background-color: rgb(221, 220, 220); /* Silver background */
+    color: #2c2c2d /* Purple text */
+    }
+
+
+h1 {
+    font-size: 24px; /* set the font size to 24 pixels */
+    line-height: 1.5; /* set the line height to 1.5 times the font size */
+    font-style: bold; /* make the text bold */;
+}    
+
+h2 {
+    font-size: 24px;
+    font-weight: 700;
+  }
+  
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+p { 
+    font-size: 16px; /* set the font size to 16 pixels */
+    line-height: 1.2; /* set the line height to 1.2 times the font size */
+    font-style: italic; /*make the text italic */
+}
+
+a {
+    color: #000000;
+  }
+  
+  a:visited {
+    /* visited link */
+    color: rgb(203, 70, 70) 8, 2;
+  }
+
+  a:hover, a:focus {
+    /* No underlining when hovering over a link */
+    text-decoration: none;
+  }
+   
+  a:active {
+    /* selected link */
+    color: #edded0;
+  }
+ 
+  
+  /* Button Styling */
+  button,
+  .button{ 
+      /* button can be styled*/
+      background-color: #adabae;
+      color: #030004;
+      padding: 16px 32px;
+      border-radius: 30px;
+      border: none;
+  }
+  button:hover, button:focus,
+  .button:hover,.button:focus {
+      /* while hovering appears a hand over it*/
+      cursor: pointer;
+      /* reduces the opacity*/
+      background-color:#f44b5f; 
+      color: #2c2c2c; 
+  }
+  .button, button {
+      display: inline-block;
+      /* takes the font from the outer container */
+      font-family: inherit;
+      transition: 0.3s ease background-color color;
+      transition-property: opacity;
+    }
+
+button:active,
+.button:active {
+  background-color: #b6b6b7;
+  border: 2px solid #d72308;
+  color: rgb(15, 1, 1), 87, 87;
+}
+  
+    /* Profile */
+
+  .profile {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .profile__text {
+    flex: 1 1 100px;
+}
+
+  
+  .profile__portrait {
+    float: left;
+    width: 250px;
+    margin-right: 40px;
+    border-radius: 50%;
+  }
+  
+/* Page Footer */
+
+  .page-footer {
+    clear: both;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/*Page Header */
+
+.page_header{
+  display: flex;
+  width: 100%;
+  padding: 16px 24px 16px 0px;
+}
+.page_header_item{ 
+   flex: 0 1 70px;
+   letter-spacing: -0.5px;
+}
+
+.page_header_item:nth-child(1){
+   width: 200px;
+   text-align: start; 
+} 
+
+.page_header_item:last-child{
+   flex-grow: 1;
+   text-align: right;
+   align-self: center;
+}
+
+/* SVG Configuration */
+
+.svg {
+  width: 30px;
+}
+
+/* Grid Container and items */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.grid__item {
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.grid__item:hover {
+  transform: scale(1.05);
+}
+
+/* Navigation List */ 
+
+.navigation-list {
+  list-style-type: none;
+ }
+    
+.navigation-list li {
+  display: inline-block;
+   }
+
+.navigation-list__item--active {
+  text-decoration: none;
+}
+
+/* start grid fallback */
+.grid__item {
+  display: inline-block;
+  width: 33%;
+ }
+ /* end grid fallback */
+ 
+ /* @support rule for browsers */
+ @supports (display: grid) {
+  .grid {
+    display: grid;
+    /* grid-template-columns: 300px 300px 300px; fractions are more responsive than pixels */
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    margin: 0;
+ 
+  }
+  .grid__item {
+    background-color: rgba(211, 211, 211, 0.733);
+    width: auto;
+    min-height: auto;
+    margin: 0;
+  }
+  .grid__item:last-child {
+    grid-column: 3 / 3;
+    grid-row: 1 / 2;
+  }
+ }
+
+
+ /* Media Queries */
+/* for learning purpose, the .grid will be overwritten, the codes below changes the layout from a 3 column grid 
+to a 1 column grid by simply passing 1fr to the grid-template-columns property - fr being the CSS grid unit fraction./ */
+
+
+
+@media all and (min-width: 500px) and (max-width: 750px){
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+  }
+  .grid__item:last-child {
+    grid-column: auto / auto;
+    grid-row: auto / auto;
+  }
+  h1 {
+    font-size: 22px;
+  }
+}
+
+/*combined width range overwritten */
+@media all and (max-width: 750px) {
+  .grid {
+    grid-gap: 10px;
+  }
+  .grid__item:last-child {
+    grid-column: auto / auto;
+    grid-row: auto / auto;
+  }
+  h1 {
+    font-size: 22px;
+  }
+}
+
+/* Overwritten querie with suggestiona from tutor */
+
+@media all and (max-width: 500px) { 
+  .grid { grid-template-columns: 1fr; } }
+  
+@media all and (max-width: 750px) { 
+ .grid { grid-gap: 10px; } 
+ .grid__item:last-child { grid-column: auto / auto; grid-row: auto / auto; } 
+}
+ 
+@media all and (min-width: 500px) and (max-width: 750px) { 
+  
+.grid { grid-template-columns: 1fr 1fr; }
+} 
+
+/* Animations */
+
+@keyframes color-change {
+  0% {
+    fill: #edc655;
+  }
+  50% {
+    fill: #fcffad;
+  }
+  100% {
+    fill: #f76414;
+  }
+}
+
+@keyframes cloud-move {
+  from {
+    transform: translate(0, 50px);
+  }
+  to {
+    transform: translate(200px, 50px);
+  }
+}
+
+.cloud-front {
+  animation: 30s cloud-move infinite alternate linear;
+}
+
+@keyframes cloud-move-reverse {
+  from {
+    transform: translate(446px, 48px);
+  }
+  to {
+    transform: translate(100px, 48px);
+  }
+}
+
+.sun {
+  animation-duration: 4s;
+  animation-name: color-change;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+
+
+.cloud-back {
+  animation: 34s cloud-move-reverse infinite alternate linear;
+}
+
+
+.berlin-illustration {
+  width: 600px;
+  margin: 30px 520px;
+  }
+
+/* Contact Page */
+
+.heading_contact{
+  display: flex;
+  text-align: left;
+  margin-left: 24px;
+  margin-right: 24px;
+  }
+
+
+/* About Page */
+
+.about {
+  margin: 0 auto;
+  justify-content: center;
+  max-width: 700px;
+}
+
+.about1 {
+margin: 0 auto;
+justify-content: center;
+max-width: 700px;
+text-align: justify;
+}
+
+.table {
+margin: 0 auto;
+justify-content: center;
+max-width: 700px;
+text-align: center;
+}
+
+/* Work Page */
+
+.work {
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+/* start grid fallback */
+
+.grid__item {
+  display: inline-block;
+  width: 33%;
+  background-color: rgba(151, 150, 150, 0.2);
+  border-radius: 10px;
+  box-shadow: 2px 5px 5px 2px rgba(0, 0, 0, 0.1);
+  width: auto;
+  min-height: auto;
+  margin: 0;
+}
+.grid_contact_item {
+  color: rgb(1, 0, 0);
+  width: auto;
+  min-height: auto;
+  padding: 0 24px; 
+  justify-content: center; 
+}
+ .grid__item {
+    display: inline-block;
+    
+   } 
+
+   /* end grid fallback */
+/* @supports (display: grid) { */
+
+.grid_contact{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 32px;
+    margin: 0 24px 0;
+    background-color: #bebdbe;
+    padding: 24px 32px ;
+    border-radius: 12px;
+    color: rgb(0, 0, 0);
+}
+.grid_contact_item{
+    color: rgb(6, 0, 0);
+    width: auto;
+    min-height: auto;
+    padding: 0 24px; 
+    justify-content: center; 
+
+}
+ 
+  /*Curriculum */
+.cv {
+  margin: 0 auto;
+  justify-content: center;
+  max-width: 700px;
+}
