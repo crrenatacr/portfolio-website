@@ -313,7 +313,9 @@ to a 1 column grid by simply passing 1fr to the grid-template-columns property -
 
 .berlin-illustration {
   width: 600px;
-  margin: 30px 520px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
   }
 
 /* Contact Page */
