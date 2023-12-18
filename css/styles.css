@@ -263,9 +263,14 @@ to a 1 column grid by simply passing 1fr to the grid-template-columns property -
 }
 
 @media all and (max-width: 750px) {
-  .grid { grid-gap: 10px; }
+  .grid {
+    grid-gap: 10px;
+  }
 
-  .grid__item:last-child { grid-column: auto / auto; grid-row: auto / auto; }
+  .grid__item:last-child {
+    grid-column: auto / auto;
+    grid-row: auto / auto;
+  }
 }
 
 @media all and (min-width: 500px) and (max-width: 750px) {
