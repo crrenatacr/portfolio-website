@@ -40,7 +40,7 @@ a {
 
 a:visited {
   /* visited link */
-  color: rgb(203, 70, 70) 8, 2;
+  color: rgb(203, 70, 70);
 }
 
 a:hover,
@@ -130,7 +130,7 @@ button:active,
 .page_header {
   display: flex;
   width: 100%;
-  padding: 16px 24px 16px 0;
+  padding: 16px 24px;
 }
 
 .page_header_item {
@@ -160,7 +160,6 @@ button:active,
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 10px;
 }
 
 .grid__item {
@@ -219,38 +218,36 @@ button:active,
   }
 }
 
-/* Media Queries */
 
-/* for learning purpose, the .grid will be overwritten, the codes below changes the layout from a 3 column grid *
-to a 1 column grid by simply passing 1fr to the grid-template-columns property - fr being the CSS grid unit fraction. */
+ /* Media Queries */
+/* for learning purpose, the .grid will be overwritten, the codes below changes the layout from a 3 column grid 
+to a 1 column grid by simply passing 1fr to the grid-template-columns property - fr being the CSS grid unit fraction./ */
 
-@media all and (min-width: 500px) and (max-width: 750px) {
+
+
+@media all and (min-width: 500px) and (max-width: 750px){
   .grid {
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px;
   }
-
   .grid__item:last-child {
     grid-column: auto / auto;
     grid-row: auto / auto;
   }
-
   h1 {
     font-size: 22px;
   }
 }
 
-/* combined width range overwritten */
+/*combined width range overwritten */
 @media all and (max-width: 750px) {
   .grid {
     grid-gap: 10px;
   }
-
   .grid__item:last-child {
     grid-column: auto / auto;
     grid-row: auto / auto;
   }
-
   h1 {
     font-size: 22px;
   }
@@ -258,25 +255,18 @@ to a 1 column grid by simply passing 1fr to the grid-template-columns property -
 
 /* Overwritten querie with suggestiona from tutor */
 
-@media all and (max-width: 500px) {
-  .grid { grid-template-columns: 1fr; }
+@media all and (max-width: 500px) { 
+  .grid { grid-template-columns: 1fr; } }
+  
+@media all and (max-width: 750px) { 
+ .grid { grid-gap: 10px; } 
+ .grid__item:last-child { grid-column: auto / auto; grid-row: auto / auto; } 
 }
-
-@media all and (max-width: 750px) {
-  .grid {
-    grid-gap: 10px;
-  }
-
-  .grid__item:last-child {
-    grid-column: auto / auto;
-    grid-row: auto / auto;
-  }
-}
-
-@media all and (min-width: 500px) and (max-width: 750px) {
-
-  .grid { grid-template-columns: 1fr 1fr; }
-}
+ 
+@media all and (min-width: 500px) and (max-width: 750px) { 
+  
+.grid { grid-template-columns: 1fr 1fr; }
+} 
 
 /* Animations */
 
@@ -284,11 +274,9 @@ to a 1 column grid by simply passing 1fr to the grid-template-columns property -
   0% {
     fill: #edc655;
   }
-
   50% {
     fill: #fcffad;
   }
-
   100% {
     fill: #f76414;
   }
@@ -298,7 +286,6 @@ to a 1 column grid by simply passing 1fr to the grid-template-columns property -
   from {
     transform: translate(0, 50px);
   }
-
   to {
     transform: translate(200px, 50px);
   }
@@ -312,7 +299,6 @@ to a 1 column grid by simply passing 1fr to the grid-template-columns property -
   from {
     transform: translate(446px, 48px);
   }
-
   to {
     transform: translate(100px, 48px);
   }
@@ -326,25 +312,28 @@ to a 1 column grid by simply passing 1fr to the grid-template-columns property -
   animation-timing-function: linear;
 }
 
+
 .cloud-back {
   animation: 34s cloud-move-reverse infinite alternate linear;
 }
+
 
 .berlin-illustration {
   width: 600px;
   margin-left: auto;
   margin-right: auto;
   display: block;
-}
+  }
 
 /* Contact Page */
 
-.heading_contact {
+.heading_contact{
   display: flex;
   text-align: left;
   margin-left: 24px;
   margin-right: 24px;
-}
+  }
+
 
 /* About Page */
 
@@ -355,17 +344,17 @@ to a 1 column grid by simply passing 1fr to the grid-template-columns property -
 }
 
 .about1 {
-  margin: 0 auto;
-  justify-content: center;
-  max-width: 700px;
-  text-align: justify;
+margin: 0 auto;
+justify-content: center;
+max-width: 700px;
+text-align: justify;
 }
 
 .table {
-  margin: 0 auto;
-  justify-content: center;
-  max-width: 700px;
-  text-align: center;
+margin: 0 auto;
+justify-content: center;
+max-width: 700px;
+text-align: center;
 }
 
 /* Work Page */
