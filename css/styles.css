@@ -15,7 +15,7 @@ body {
 h1 {
   font-size: 24px; /* set the font size to 24 pixels */
   line-height: 1.5; /* set the line height to 1.5 times the font size */
-  font-style: bold; /* make the text bold */
+  font-style: italic; /* make the text italic */
 }
 
 h2 {
@@ -40,7 +40,7 @@ a {
 
 a:visited {
   /* visited link */
-  color: rgb(203, 70, 70) 8, 2;
+  color: rgb(203, 70, 70);
 }
 
 a:hover,
@@ -130,7 +130,7 @@ button:active,
 .page_header {
   display: flex;
   width: 100%;
-  padding: 16px 24px 16px 0px;
+  padding: 16px 24px 16px 0;
 }
 
 .page_header_item {
@@ -237,6 +237,18 @@ to a 1 column grid by simply passing 1fr to the grid-template-columns property -
 
   h1 {
     font-size: 22px;
+  }
+}
+
+/* Media query for screens smaller than 750px */
+
+@media (max-width: 750px) {
+  .grid_contact {
+    display: block; /* Make the grid items stack vertically */
+  }
+
+  .grid_contact_item {
+    margin-bottom: 20px; /* Add spacing between the grid items */
   }
 }
 
@@ -407,7 +419,7 @@ to a 1 column grid by simply passing 1fr to the grid-template-columns property -
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 32px;
-  margin: 0 24px 0;
+  margin: 0 24px;
   background-color: #bebdbe;
   padding: 24px 32px;
   border-radius: 12px;

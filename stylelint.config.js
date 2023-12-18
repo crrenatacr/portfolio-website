@@ -9,6 +9,7 @@ module.exports = {
     "declaration-block-no-duplicate-properties": [ true, {
       ignore: ["consecutive-duplicates-with-different-values"]
     } ],
+
     "declaration-block-no-redundant-longhand-properties": true,
     "declaration-block-no-shorthand-property-overrides": true,
     "font-family-no-duplicate-names": true,
