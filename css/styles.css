@@ -130,7 +130,7 @@ button:active,
 .page_header {
   display: flex;
   width: 100%;
-  padding: 16px 24px 16px 0px;
+  padding: 16px 24px 16px 0;
 }
 
 .page_header_item {
@@ -263,9 +263,14 @@ to a 1 column grid by simply passing 1fr to the grid-template-columns property -
 }
 
 @media all and (max-width: 750px) {
-  .grid { grid-gap: 10px; }
+  .grid {
+    grid-gap: 10px;
+  }
 
-  .grid__item:last-child { grid-column: auto / auto; grid-row: auto / auto; }
+  .grid__item:last-child {
+    grid-column: auto / auto;
+    grid-row: auto / auto;
+  }
 }
 
 @media all and (min-width: 500px) and (max-width: 750px) {
@@ -402,7 +407,7 @@ to a 1 column grid by simply passing 1fr to the grid-template-columns property -
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 32px;
-  margin: 0 24px 0;
+  margin: 0 24px;
   background-color: #bebdbe;
   padding: 24px 32px;
   border-radius: 12px;

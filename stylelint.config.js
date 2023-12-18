@@ -6,7 +6,7 @@ module.exports = {
     "block-no-empty": true,
     "color-no-invalid-hex": true,
     "comment-no-empty": true,
-    "declaration-block-no-duplicate-properties": [ true, {
+    "declaration-block-no-duplicate-properties": [ true, { 
       ignore: ["consecutive-duplicates-with-different-values"]
     } ],
 

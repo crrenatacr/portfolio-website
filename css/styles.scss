@@ -1,9 +1,11 @@
-/* Variables - defining the scope of the variable */
+// Variables - defining the scope of the variable
+
 $a-color: #357b70;
 $body-font: 'Josefin Sans', sans-serif;
-$body-font-weight: 400;
-$background-color: rgb(221, 220, 220); /* Silver background */
-$text-color: #2c2c2d; /* Purple text */
+$background-silver: rgb(221, 220, 220);
+$text-purple: #2c2c2d;
+$margin-value: 20px;
+$padding-value: 0;
 
 a {
   color: $a-color;
@@ -11,15 +13,18 @@ a {
 
 body {
   font-family: $body-font;
-  font-weight: $body-font-weight;
-  background-color: $background-color;
-  color: $text-color;
+  font-weight: 400;
+  background-color: $background-silver;
+  color: $text-purple;
+  margin: $margin-value;
+  padding: $padding-value;
+  box-sizing: border-box;
 }
 
 h1 {
   font-size: 24px;
   line-height: 1.5;
-  font-style: bold;
+  font-style: italic;
 }
 
 h2 {
@@ -39,7 +44,7 @@ p {
 }
 
 a {
-  color: #000000;
+  color: #000;
 }
 
 a:visited {
@@ -55,14 +60,11 @@ a:active {
   color: #edded0;
 }
 
-/* Button Styling */
-$button-bg: #adabae;
-$button-text: #030004;
-
+// Button Styling
 button,
 .button {
-  background-color: $button-bg;
-  color: $button-text;
+  background-color: #adabae;
+  color: #030004;
   padding: 16px 32px;
   border-radius: 30px;
   border: none;
@@ -85,24 +87,24 @@ button,
   transition: 0.3s ease;
 }
 
-/* Profile */
+// Profile
 .profile {
   max-width: 700px;
   margin: 0 auto;
+
+  &__text {
+    flex: 1 1 100px;
+  }
+
+  &__portrait {
+    float: left;
+    width: 250px;
+    margin-right: 40px;
+    border-radius: 50%;
+  }
 }
 
-.profile__text {
-  flex: 1 1 100px;
-}
-
-.profile__portrait {
-  float: left;
-  width: 250px;
-  margin-right: 40px;
-  border-radius: 50%;
-}
-
-/* Page Footer */
+// Page Footer
 .page-footer {
   clear: both;
   display: flex;
@@ -114,39 +116,37 @@ button,
   box-sizing: border-box;
 }
 
-/* Page Header */
+// Page Header
 .page_header {
   display: flex;
   width: 100%;
-  padding: 16px 24px 16px 0px;
+
+  &__item {
+    flex: 0 1 70px;
+    letter-spacing: -0.5px;
+
+    &:nth-child(1) {
+      width: 200px;
+      text-align: start;
+    }
+
+    &:last-child {
+      flex-grow: 1;
+      text-align: right;
+      align-self: center;
+    }
+  }
 }
 
-.page_header_item {
-  flex: 0 1 70px;
-  letter-spacing: -0.5px;
-
-  &:nth-child(1) {
-    width: 200px;
-    text-align: start;
-  }
-
-  &:last-child {
-    flex-grow: 1;
-    text-align: right;
-    align-self: center;
-  }
-}
-
-/* SVG Configuration */
+// SVG Configuration
 .svg {
   width: 30px;
 }
 
-/* Grid Container and items */
+// Grid Container and items
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 10px;
 }
 
 .grid__item {
@@ -159,7 +159,7 @@ button,
   }
 }
 
-/* Navigation List */
+// Navigation List
 .navigation-list {
   list-style-type: none;
 
@@ -172,13 +172,13 @@ button,
   }
 }
 
-/* Grid Fallback */
+// Grid Fallback
 .grid__item {
   display: inline-block;
   width: 33%;
 }
 
-/* @support rule for browsers */
+// @support rule for browsers
 @supports (display: grid) {
   .grid {
     display: grid;
@@ -191,24 +191,26 @@ button,
       width: auto;
       min-height: auto;
       margin: 0;
+    }
 
-      &:last-child {
-        grid-column: 3 / 3;
-        grid-row: 1 / 2;
-      }
+    .grid__item:last-child {
+      grid-column: 3/3;
+      grid-row: 1/2;
     }
   }
 }
 
-/* Media Queries */
+// Media Queries
+
 @media all and (min-width: 500px) and (max-width: 750px) {
   .grid {
+    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px;
 
     .grid__item:last-child {
-      grid-column: auto / auto;
-      grid-row: auto / auto;
+      grid-column: auto/auto;
+      grid-row: auto/auto;
     }
 
     h1 {
@@ -222,8 +224,8 @@ button,
     grid-gap: 10px;
 
     .grid__item:last-child {
-      grid-column: auto / auto;
-      grid-row: auto / auto;
+      grid-column: auto/auto;
+      grid-row: auto/auto;
     }
 
     h1 {
@@ -232,26 +234,55 @@ button,
   }
 }
 
-@media all and (max-width: 500px) {
-  .grid {
-    grid-template-columns: 1fr;
+// Adjust the layout of the form
+.heading_contact {
+  flex-direction: column-reverse;
+
+  .profile__portrait {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .grid_contact {
+    margin: 0;
+    padding: 16px;
+
+    .grid_contact_item {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  @media all and (max-width: 750px) {
+    .grid {
+      grid-gap: 10px;
+    }
+  }
+
+  @media all and (max-width: 500px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media all and (min-width: 500px) and (max-width: 750px) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 }
 
-@media all and (min-width: 500px) and (max-width: 750px) {
-  .grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* Animations */
+// Animations
 @keyframes color-change {
   0% {
     fill: #edc655;
   }
+
   50% {
     fill: #fcffad;
   }
+
   100% {
     fill: #f76414;
   }
@@ -261,6 +292,7 @@ button,
   from {
     transform: translate(0, 50px);
   }
+
   to {
     transform: translate(200px, 50px);
   }
@@ -270,33 +302,32 @@ button,
   from {
     transform: translate(446px, 48px);
   }
+
   to {
     transform: translate(100px, 48px);
   }
 }
 
 .cloud-front {
-  animation: 30s cloud-move infinite alternate linear;
+  animation: cloud-move 30s infinite alternate linear;
 }
 
 .sun {
-  animation-duration: 4s;
-  animation-name: color-change;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  animation-timing-function: linear;
+  animation: color-change 4s infinite alternate linear;
 }
 
 .cloud-back {
-  animation: 34s cloud-move-reverse infinite alternate linear;
+  animation: cloud-move-reverse 34s infinite alternate linear;
 }
 
 .berlin-illustration {
   width: 600px;
-  margin: 30px 520px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
-/* Contact Page */
+// Contact Page
 .heading_contact {
   display: flex;
   text-align: left;
@@ -304,41 +335,28 @@ button,
   margin-right: 24px;
 }
 
-/* About Page */
-.about {
-  margin: 0 auto;
-  justify-content: center;
-  max-width: 700px;
-}
-
-.about1 {
-  margin: 0 auto;
-  justify-content: center;
-  max-width: 700px;
-  text-align: justify;
-}
-
+// About Page
+.about,
+.about1,
 .table {
   margin: 0 auto;
   justify-content: center;
   max-width: 700px;
-  text-align: center;
 }
 
-/* Work Page */
+// Work Page
 .work {
   max-width: 70%;
   margin: 0 auto;
 }
 
-/* Grid Fallback */
+// Grid Fallback
 .grid__item {
   display: inline-block;
   width: 33%;
   background-color: rgba(151, 150, 150, 0.2);
   border-radius: 10px;
   box-shadow: 2px 5px 5px 2px rgba(0, 0, 0, 0.1);
-  width: auto;
   min-height: auto;
   margin: 0;
 }
@@ -351,34 +369,29 @@ button,
   justify-content: center;
 }
 
-.grid__item {
-  display: inline-block;
-  width: 33%;
-}
-
-/* Grid @support rule for browsers */
+// Grid @support rule for browsers
 @supports (display: grid) {
   .grid_contact {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 32px;
-    margin: 0 24px 0;
+    margin: 0 24px;
     background-color: #bebdbe;
     padding: 24px 32px;
     border-radius: 12px;
     color: rgb(0, 0, 0);
-  }
 
-  .grid_contact_item {
-    color: rgb(6, 0, 0);
-    width: auto;
-    min-height: auto;
-    padding: 0 24px;
-    justify-content: center;
+    .grid_contact_item {
+      color: rgb(6, 0, 0);
+      width: auto;
+      min-height: auto;
+      padding: 0 24px;
+      justify-content: center;
+    }
   }
 }
 
-/* Curriculum */
+// Curriculum
 .cv {
   margin: 0 auto;
   justify-content: center;
