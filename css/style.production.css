@@ -16,17 +16,13 @@ body {
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 400;
   background-color: rgb(221, 220, 220); /* Silver background */
-  color: #2c2c2d; /* Purple text */
-  margin: 20px; /* Adjust the value */
-  padding: 0; /* Resets padding to ensure consistency */
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+  color: #2c2c2d /* Purple text */
 }
 
 h1 {
   font-size: 24px; /* set the font size to 24 pixels */
   line-height: 1.5; /* set the line height to 1.5 times the font size */
-  font-style: italic; /* make the text italic */
+  font-style: bold; /* make the text bold */
 }
 
 h2 {
@@ -155,7 +151,7 @@ button:active,
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  padding: 16px 24px 16px 0;
+  padding: 16px 24px;
 }
 
 .page_header_item {
@@ -192,12 +188,24 @@ button:active,
   display: -ms-grid;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-gap: 20px; /* Add spacing between grid items */
+  margin: 20px; /* Add margin to the grid container */
 }
 
 .grid__item {
-  padding: 20px;
   text-align: center;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  -o-transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  margin: 10px; /* Add margin to each grid item */
+}
+
+.grid__item:hover {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .grid__item:hover {
@@ -259,8 +267,34 @@ button:active,
 
 /* Media Queries */
 
-/* for learning purpose, the .grid will be overwritten, the codes below changes the layout from a 3 column grid *
-to a 1 column grid by simply passing 1fr to the grid-template-columns property - fr being the CSS grid unit fraction. */
+/* for learning purpose, the .grid will be overwritten, the codes below changes the layout from a 3 column grid
+to a 1 column grid by simply passing 1fr to the grid-template-columns property - fr being the CSS grid unit fraction./ */
+
+/* This CSS is for small screens (max-width: 767px) */
+@media screen and (max-width: 767px) {
+  .grid_contact {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column; /* Changes to a column layout */
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; /* Centers items */
+    text-align: center; /* Centers text within items */
+  }
+
+  .grid_contact_item {
+    margin-bottom: 20px; /* Add space between contact info and form */
+  }
+
+  form {
+    max-width: 300px; /* Adjust the form width as needed */
+    margin: 0 auto; /* Center the form */
+  }
+}
 
 @media all and (min-width: 500px) and (max-width: 750px) {
   .grid {
@@ -277,43 +311,6 @@ to a 1 column grid by simply passing 1fr to the grid-template-columns property -
   h1 {
     font-size: 22px;
   }
-}
-
-/* Media query for screens smaller than 750px */
-
-@media (max-width: 750px) {
-  .grid_contact {
-    display: block; /* Make the grid items stack vertically */
-  }
-
-  .grid_contact_item {
-    margin-bottom: 20px; /* Add spacing between the grid items */
-  }
-}
-
-/* Adjust the layout of the form */
-.heading_contact {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: reverse;
-  -ms-flex-direction: column-reverse;
-  flex-direction: column-reverse; /* Stack the form below contact info */
-}
-
-/* Adjust other styles as needed */
-.profile__portrait {
-  float: none; /* Remove float for better mobile display */
-  width: 100%; /* Make the portrait take full width */
-  margin-right: 0; /* Remove margin for better spacing */
-}
-
-.grid_contact {
-  margin: 0; /* Remove margin for better spacing */
-  padding: 16px; /* Add padding for better spacing */
-}
-
-.grid_contact_item {
-  width: 100%; /* Make each item take full width */
-  text-align: center; /* Center the text in each item */
 }
 
 /* combined width range overwritten */
@@ -334,29 +331,26 @@ to a 1 column grid by simply passing 1fr to the grid-template-columns property -
 
 /* Overwritten querie with suggestiona from tutor */
 
-@media all and (min-width: 500px) and (max-width: 750px) {
-  .grid {
-    -ms-grid-columns: 1fr 10px 1fr;
-    grid-template-columns: 1fr 1fr;
-  }
+@media all and (max-width: 500px) {
+  .grid { -ms-grid-columns: 1fr; grid-template-columns: 1fr; }
 }
 
 @media all and (max-width: 750px) {
   .grid {
     grid-gap: 10px;
   }
+}
 
+@media all and (max-width: 750px) {
   .grid__item:last-child {
     grid-column: auto / auto;
     grid-row: auto / auto;
   }
 }
 
-@supports (display: grid) {
-  .grid {
-    -ms-grid-columns: 1fr 10px 1fr; /* Comment out or remove this line */
-    grid-template-columns: 1fr 1fr;
-  }
+@media all and (min-width: 500px) and (max-width: 750px) {
+
+  .grid { -ms-grid-columns: 1fr 10px 1fr; grid-template-columns: 1fr 1fr; }
 }
 
 /* Animations */
@@ -473,9 +467,15 @@ to a 1 column grid by simply passing 1fr to the grid-template-columns property -
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  text-align: left;
-  margin-left: 24px;
-  margin-right: 24px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column; /* Display children in a column */
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; /* Center items horizontally */
+  text-align: center; /* Center text within items */
+  margin: 24px auto; /* Adjust the margin as needed */
 }
 
 /* About Page */
