@@ -1,5 +1,7 @@
 /* Variables - defining the scope of the variable */
+
 /* Silver background */
+
 /* Purple text */
 a {
   color: #357b70;
@@ -35,7 +37,7 @@ p {
 }
 
 a {
-  color: #000000;
+  color: #000;
 }
 
 a:visited {
@@ -352,6 +354,7 @@ button:active,
     justify-content: center;
   }
 }
+
 /* Curriculum */
 .cv {
   margin: 0 auto;
