@@ -307,7 +307,7 @@ to a 1 column grid by simply passing 1fr to the grid-template-columns property -
 }
 
 .grid_contact {
-  margin: 0; /* Remove margin for better spacing */
+  margin: 10px; /* Remove margin for better spacing */
   padding: 16px; /* Add padding for better spacing */
 }
 
