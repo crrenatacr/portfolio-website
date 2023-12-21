@@ -80,7 +80,7 @@ button:active,
 .button:active {
   background-color: #b6b6b7;
   border: 2px solid #d72308;
-  color: #0f0101, 87, 87;
+  color: #0f0101;
 }
 
 /* Profile */

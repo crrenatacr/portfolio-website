@@ -91,7 +91,7 @@ button:active,
 .button:active {
   background-color: #b6b6b7;
   border: 2px solid #d72308;
-  color: rgb(15, 1, 1), 87, 87;
+  color: rgb(15, 1, 1);
 }
 
 /* Profile */
